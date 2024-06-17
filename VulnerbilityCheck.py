@@ -73,27 +73,27 @@ def perform_security_scan(url):
   response = requests.get(url)
   insecure_headers = check_insecure_headers(response)
 
-  results = ""
+  results = []
   if not open_redirect_found:
-    results += f"No open redirect found at {url}\n"
+    results.append(f"No open redirect found at {url}")
   else:
-    results += f"Open redirect found at {url}\n"
+    results.append(f"Open redirect found at {url}")
 
   if not xss_found:
-    results += f"No XSS vulnerability found at {url}\n"
+    results.append(f"No XSS vulnerability found at {url}")
   else:
-    results += f"XSS vulnerability suspected at {url} (further investigation recommended)\n"  
+    results.append(f"XSS vulnerability suspected at {url} (further investigation recommended)") 
 
   if not sql_injection_found:
-    results += f"No SQL injection vulnerability found at {url}\n"
+    results.append(f"No SQL injection vulnerability found at {url}")
   else:
-    results += f"SQL injection vulnerability suspected at {url} (further investigation recommended)\n"
+    results.append(f"SQL injection vulnerability suspected at {url} (further investigation recommended)")
 
   if insecure_headers:
-    results += f"Insecure headers found:\n"
+    results.append(f"Insecure headers found: ")
     for header in insecure_headers:
-      results += f"- {header}\n"
+      results.append(f"- {header}")
   else:
-    results += "No insecure headers detected.\n"
+    results.append("No insecure headers detected.")
 
   return results  # Return the scan results
