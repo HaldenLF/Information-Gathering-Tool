@@ -1,14 +1,21 @@
 from TechnicalInfo import get_tech_info
 from PortScan import port_scan
 from SubDomains import subdomain_scan_results
+import re
 
-# webscraper.io
-# hackthissite.org
+def get_safe_filename(url):
+    # Remove protocol and www (optional, adjust if needed)
+    url = re.sub(r"^https?://(www\.)?", "", url)
+    # Remove characters not allowed in filenames
+    filename = re.sub(r"[^\w\-_. ]", "_", url)
+    return filename.strip("_ ")  # Remove leading/trailing whitespace and underscores
+
 target = input("What webpage would you like to investigate?: \n"
                "(Use the format 'example.com')\n"
                "> ")
 
-filename = "Target Summary.pdf"
+safe_filename = get_safe_filename(target)
+filename = f"{safe_filename}_Summary.pdf"
 with open(filename, 'w') as f: # write data to file
 
     
@@ -16,7 +23,7 @@ with open(filename, 'w') as f: # write data to file
     tech_scan_report = get_tech_info(target)
 
     if tech_scan_report:  
-        f.write("\nTechnical Information:\n")
+        f.write("\n-------------Technical Information:-------------\n")
         for info in tech_scan_report:
             f.write(f"{info}.\n")
     else:
@@ -27,7 +34,7 @@ with open(filename, 'w') as f: # write data to file
     port_scan_report = port_scan(target) 
 
     if port_scan_report:  
-        f.write("\nOpen Ports:\n")
+        f.write("\n-------------Open Ports:-------------\n")
         for port, service in port_scan_report.items():
             f.write(f"Port {port} ({service}) is open.\n")
     else:
@@ -38,7 +45,7 @@ with open(filename, 'w') as f: # write data to file
     subdomain_scan_report = subdomain_scan_results(target)
 
     if subdomain_scan_report:
-        f.write("\nSubdomains:\n")
+        f.write("\n-------------Subdomains:-------------\n")
         f.write(subdomain_scan_report["message"] + "\n") 
         if "subdomains" in subdomain_scan_report:
             for subdomain in subdomain_scan_report["subdomains"]:
