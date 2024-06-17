@@ -14,24 +14,6 @@ def check_ip_and_domain(target):
     except socket.gaierror:
         return "Invalid target", None
 
-# gets DNS record for target site
-def get_dns_records(domain): #### not sure if it is working correctly #####
-    records = {}
-    try:
-        answers = dns.resolver.resolve(domain, 'A')
-        records['A'] = [str(r) for r in answers]
-        
-        answers = dns.resolver.resolve(domain, 'MX')
-        records['MX'] = [str(r.exchange) for r in answers]
-        
-        answers = dns.resolver.resolve(domain, 'NS')
-        records['NS'] = [str(r) for r in answers]
-        
-        return records
-    except dns.resolver.NoAnswer:
-        return "No DNS records found for the domain"
-    except dns.resolver.NXDOMAIN:
-        return "Domain does not exist"
 
 def is_online(target):
   # checks if target site is online
@@ -41,8 +23,8 @@ def is_online(target):
   except Exception:
     return False
 
-def get_tech_info(Target):
-    target = Target
+
+def get_tech_info(target):
     ip_address, domain_name = check_ip_and_domain(target)
 
     results = []
@@ -58,15 +40,7 @@ def get_tech_info(Target):
         else:
             results.append(f"{target} is offline")
 
-        # Get DNS records
-        dns_records = get_dns_records(domain_name)
-        if isinstance(dns_records, str):
-            results.append(dns_records)
-        else:
-            for record_type, values in dns_records.items():
-                results.append(f"\n{record_type} records: {', '.join(values)}")
-
     else:
-        results.append("Invalid target entered.") 
+        results.append("Invalid target entered.")
 
     return results
