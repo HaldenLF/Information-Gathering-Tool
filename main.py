@@ -1,7 +1,10 @@
 from TechnicalInfo import get_tech_info
 from PortScan import port_scan
 from SubDomains import subdomain_scan_results
+from VulnerbilityCheck import perform_security_scan
+from DNS_results import DNSLookUp
 import re
+from whois import whois
 
 def get_safe_filename(url):
     # Remove protocol and www (optional, adjust if needed)
@@ -16,41 +19,63 @@ target = get_safe_filename(input("What webpage would you like to investigate?: \
 
 safe_filename = get_safe_filename(target)
 filename = f"{safe_filename}_Summary.txt"
-with open(filename, 'w') as f: # write data to file
+with open(filename, 'w', encoding="utf-8") as f: # write data to file
 
     
     # scan for technical info and store results
     tech_scan_report = get_tech_info(target)
 
     if tech_scan_report:  
-        f.write("\n-------------Technical Information:-------------\n")
+        f.write("\n\n------------- Technical Information -------------\n\n")
         for info in tech_scan_report:
-            f.write(f"{info}.\n")
+            f.write(f"{info}\n")
     else:
-        f.write("No technical information found.\n")
+        f.write("No technical information found\n")
 
 
     # scan ports and store the results
     port_scan_report = port_scan(target) 
 
     if port_scan_report:  
-        f.write("\n-------------Open Ports:-------------\n")
+        f.write("\n\n------------- Open Ports -------------\n\n")
         for port, service in port_scan_report.items():
-            f.write(f"Port {port} ({service}) is open.\n")
+            f.write(f"Port {port} ({service}) is open\n")
     else:
-        f.write("No open ports found.\n")
+        f.write("No open ports found\n")
 
 
     # scan subdomains and store results
     subdomain_scan_report = subdomain_scan_results(target)
 
     if subdomain_scan_report:
-        f.write("\n-------------Subdomains:-------------\n")
+        f.write("\n\n------------- Subdomains -------------\n\n")
         #f.write(subdomain_scan_report["message"] + "\n") 
         if "subdomains" in subdomain_scan_report:
             for subdomain in subdomain_scan_report["subdomains"]:
                 f.write(f"{subdomain}\n")
         else:
-            f.write("No subdomains found.\n")
+            f.write("No subdomains found\n")
     else:
         f.write(f"Error: {subdomain_scan_report['message']}\n")
+
+
+    # scan for vulnerbilities and store results
+    vuln_scan_report = perform_security_scan(target)
+
+    if vuln_scan_report:  
+        f.write("\n\n------------- Potential Vulnerbilities -------------\n\n")
+        for vuln in vuln_scan_report:
+            f.write(f"{vuln}\n") # write results to report
+    else:
+        f.write("No vulnerbilities found\n")
+
+
+    # scan for vulnerbilities and store results
+    DNS_scan_report = DNSLookUp(target)
+
+    if DNS_scan_report:  
+        f.write("\n\n------------- DNS -------------\n\n")
+        for dns in DNS_scan_report:
+            f.write(f"{dns}.\n")
+    else:
+        f.write("No vulnerbilites found\n")
