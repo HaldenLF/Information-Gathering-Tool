@@ -10,9 +10,9 @@ def get_safe_filename(url):
     filename = re.sub(r"[^\w\-_. ]", "_", url)
     return filename.strip("_ ")  # Remove leading/trailing whitespace and underscores
 
-target = input("What webpage would you like to investigate?: \n"
+target = get_safe_filename(input("What webpage would you like to investigate?: \n"
                "(Use the format 'example.com')\n"
-               "> ")
+               "> "))
 
 safe_filename = get_safe_filename(target)
 filename = f"{safe_filename}_Summary.txt"
@@ -46,7 +46,7 @@ with open(filename, 'w') as f: # write data to file
 
     if subdomain_scan_report:
         f.write("\n-------------Subdomains:-------------\n")
-        f.write(subdomain_scan_report["message"] + "\n") 
+        #f.write(subdomain_scan_report["message"] + "\n") 
         if "subdomains" in subdomain_scan_report:
             for subdomain in subdomain_scan_report["subdomains"]:
                 f.write(f"{subdomain}\n")
