@@ -1,4 +1,4 @@
-# Information Gathering Reports
+# Information Gathering Tools
 
 A collection of programs designed to gather information about a website.
 
@@ -6,6 +6,6 @@ Some information gathered is
 open ports,
 IP address,
 domain name,
-subdomains
-
-There is also a crawler that is used to gather information for the creation of a sitemap.
+subdomains,
+site maps,
+DNS reports
