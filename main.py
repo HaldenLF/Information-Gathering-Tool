@@ -1,10 +1,94 @@
+# from TechnicalInfo import get_tech_info
+# from PortScan import port_scan
+# from SubDomains import subdomain_scan_results
+# from VulnerbilityCheck import perform_security_scan
+# from DNS_results import DNSLookUp
+# import re
+# from whois import whois
+
+# def get_safe_filename(url):
+#     # Remove protocol and www (optional, adjust if needed)
+#     url = re.sub(r"^https?://(www\.)?", "", url)
+#     # Remove characters not allowed in filenames
+#     filename = re.sub(r"[^\w\-_. ]", "_", url)
+#     return filename.strip("_ ")  # Remove leading/trailing whitespace and underscores
+
+# target = get_safe_filename(input("What webpage would you like to investigate?: \n"
+#                "(Use the format 'example.com')\n"
+#                "> "))
+
+# safe_filename = get_safe_filename(target)
+# filename = f"{safe_filename}_Summary.txt"
+# with open(filename, 'w', encoding="utf-8") as f: # write data to file
+
+    
+#     # scan for technical info and store results
+#     tech_scan_report = get_tech_info(target)
+
+#     if tech_scan_report:  
+#         f.write("\n\n------------- Technical Information -------------\n\n")
+#         for info in tech_scan_report:
+#             f.write(f"{info}\n")
+#     else:
+#         f.write("No technical information found\n")
+
+
+#     # scan ports and store the results
+#     port_scan_report = port_scan(target) 
+
+#     if port_scan_report:  
+#         f.write("\n\n------------- Open Ports -------------\n\n")
+#         for port, service in port_scan_report.items():
+#             f.write(f"Port {port} ({service}) is open\n")
+#     else:
+#         f.write("No open ports found\n")
+
+
+#     # scan subdomains and store results
+#     subdomain_scan_report = subdomain_scan_results(target)
+
+#     if subdomain_scan_report:
+#         f.write("\n\n------------- Subdomains -------------\n\n")
+#         #f.write(subdomain_scan_report["message"] + "\n") 
+#         if "subdomains" in subdomain_scan_report:
+#             for subdomain in subdomain_scan_report["subdomains"]:
+#                 f.write(f"{subdomain}\n")
+#         else:
+#             f.write("No subdomains found\n")
+#     else:
+#         f.write(f"Error: {subdomain_scan_report['message']}\n")
+
+
+#     # # scan for vulnerbilities and store results
+#     # vuln_scan_report = perform_security_scan(target)
+
+#     # if vuln_scan_report:  
+#     #     f.write("\n\n------------- Potential Vulnerbilities -------------\n\n")
+#     #     for vuln in vuln_scan_report:
+#     #         f.write(f"{vuln}\n") # write results to report
+#     # else:
+#     #     f.write("No vulnerbilities found\n")
+
+
+#     # scan for vulnerbilities and store results
+#     DNS_scan_report = DNSLookUp(target)
+
+#     if DNS_scan_report:  
+#         f.write("\n\n------------- DNS -------------\n\n")
+#         for dns in DNS_scan_report:
+#             f.write(f"{dns}.\n")
+#     else:
+#         f.write("No vulnerbilites found\n")
+
+
 from TechnicalInfo import get_tech_info
 from PortScan import port_scan
 from SubDomains import subdomain_scan_results
-from VulnerbilityCheck import perform_security_scan
+from VulnerbilityCheck import perform_security_scan  
 from DNS_results import DNSLookUp
-import re
 from whois import whois
+import re
+
 
 def get_safe_filename(url):
     # Remove protocol and www (optional, adjust if needed)
@@ -14,29 +98,27 @@ def get_safe_filename(url):
     return filename.strip("_ ")  # Remove leading/trailing whitespace and underscores
 
 target = get_safe_filename(input("What webpage would you like to investigate?: \n"
-               "(Use the format 'example.com')\n"
-               "> "))
+                                  "(Use the format 'example.com')\n"
+                                  "> "))
 
 safe_filename = get_safe_filename(target)
 filename = f"{safe_filename}_Summary.txt"
-with open(filename, 'w', encoding="utf-8") as f: # write data to file
+with open(filename, 'w', encoding="utf-8") as f:  # Write data to file
 
-    
-    # scan for technical info and store results
+
+    # Technical information scan
     tech_scan_report = get_tech_info(target)
-
-    if tech_scan_report:  
+    if tech_scan_report:
         f.write("\n\n------------- Technical Information -------------\n\n")
         for info in tech_scan_report:
             f.write(f"{info}\n")
     else:
-        f.write("No technical information found\n")
+        f.write("No technical information found\n")    
 
 
-    # scan ports and store the results
-    port_scan_report = port_scan(target) 
-
-    if port_scan_report:  
+    # Port scan
+    port_scan_report = port_scan(target)
+    if port_scan_report:
         f.write("\n\n------------- Open Ports -------------\n\n")
         for port, service in port_scan_report.items():
             f.write(f"Port {port} ({service}) is open\n")
@@ -44,12 +126,10 @@ with open(filename, 'w', encoding="utf-8") as f: # write data to file
         f.write("No open ports found\n")
 
 
-    # scan subdomains and store results
+    # Subdomain scan
     subdomain_scan_report = subdomain_scan_results(target)
-
     if subdomain_scan_report:
         f.write("\n\n------------- Subdomains -------------\n\n")
-        #f.write(subdomain_scan_report["message"] + "\n") 
         if "subdomains" in subdomain_scan_report:
             for subdomain in subdomain_scan_report["subdomains"]:
                 f.write(f"{subdomain}\n")
@@ -59,23 +139,49 @@ with open(filename, 'w', encoding="utf-8") as f: # write data to file
         f.write(f"Error: {subdomain_scan_report['message']}\n")
 
 
-    # # scan for vulnerbilities and store results
-    # vuln_scan_report = perform_security_scan(target)
+    # WHOIS & DNS lookup
+    whois_info = whois(target)
 
-    # if vuln_scan_report:  
-    #     f.write("\n\n------------- Potential Vulnerbilities -------------\n\n")
-    #     for vuln in vuln_scan_report:
-    #         f.write(f"{vuln}\n") # write results to report
-    # else:
-    #     f.write("No vulnerbilities found\n")
+    # Who is scan
+    if whois_info:
+        f.write("\n\n------------- WHOIS Information -------------\n\n")
+        for key, value in whois_info.items():
+            f.write(f"{key}: {value}\n")
+    else:
+        f.write("WHOIS information not found.\n")
 
 
-    # scan for vulnerbilities and store results
-    DNS_scan_report = DNSLookUp(target)
-
-    if DNS_scan_report:  
+    # DNS scan
+    dns_scan_report = DNSLookUp(target)
+    if dns_scan_report:
         f.write("\n\n------------- DNS -------------\n\n")
-        for dns in DNS_scan_report:
+        for dns in dns_scan_report:
             f.write(f"{dns}.\n")
     else:
-        f.write("No vulnerbilites found\n")
+        f.write("DNS information not found.\n")
+
+
+#     # # scan for vulnerbilities and store results
+#     # vuln_scan_report = perform_security_scan(target)
+
+#     # if vuln_scan_report:  
+#     #     f.write("\n\n------------- Potential Vulnerbilities -------------\n\n")
+#     #     for vuln in vuln_scan_report:
+#     #         f.write(f"{vuln}\n") # write results to report
+#     # else:
+#     #     f.write("No vulnerbilities found\n")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

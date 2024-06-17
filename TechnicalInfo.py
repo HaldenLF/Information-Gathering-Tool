@@ -25,14 +25,14 @@ def is_online(target):
 
 
 def get_tech_info(target):
-    ip_address, domain_name = check_ip_and_domain(target)
+    ip_address, server_name = check_ip_and_domain(target)
 
     results = []
-    if domain_name:
+    if server_name:
         IP = (f"IP Address of {target}: {ip_address}")
         results.append(IP)
-        DNS = f"Domain Name of {target}: {domain_name}"
-        results.append(DNS)
+        server = f"{target} server: {server_name}"
+        results.append(server)
 
         # Check online status using ping3
         if is_online(target):

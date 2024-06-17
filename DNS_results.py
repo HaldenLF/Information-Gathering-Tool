@@ -12,8 +12,6 @@ whois_data = [] # varaible to store all results
 
 def DNSLookUp(Target):
 
-    # URL to pull DNS servers from
-    # domain = Target.split("//")[1].split("/")[0]
 
     domain = Target
 
@@ -32,9 +30,6 @@ def DNSLookUp(Target):
         except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer, dns.resolver.Timeout):
             return None
 
-
-    # print(f"Gathering information for: {domain}")
-
     # Get IP address
     ip = get_ip(domain)
     if ip:
@@ -51,42 +46,38 @@ def DNSLookUp(Target):
     else:
         whois_data.append("DNS Servers: Not found\n")
 
-    def whois_lookup(domain: str):
-        results = []
-        try:
-            # # Inform the user that the WHOIS lookup is being performed
-            # print(f"Performing WHOIS lookup for {domain}...")
-
-            # Perform the WHOIS lookup using the whois module
-            w = whois.whois(domain)
-
-            # Relevant WHOIS information from given domain
-            whois_info = {
-                'Domain Name': w.domain_name,
-                'Registrar': w.registrar,
-                'Creation Date': w.creation_date,
-                'Expiration Date': w.expiration_date,
-                'Last Updated': w.updated_date,
-                'Name Servers': w.name_servers,
-                'Status': w.status,
-                'Emails': w.emails,
-                'DNSSEC': w.dnssec,
-            }
-
-            results.append(whois_info)
-
-            # # Print the retrieved WHOIS information
-            # print("WHOIS Information:")
-            # print(w)
-            # print(whois_info)
-
-            # Return the WHOIS information
-            return w, results
-        except Exception as e:
-            # Print an error message if an exception occurs during the lookup
-            print(f"An error occurred during WHOIS lookup: {e}")
-
-            # Return None to indicate that the lookup was unsuccessful
-            return None
-        
     return whois_data
+
+
+def whois_lookup(domain: str):
+    results = []
+    try:
+
+        # Perform the WHOIS lookup using the whois module
+        w = whois.whois(domain)
+
+        # Relevant WHOIS information from given domain
+        whois_info = {
+            'Domain Name': w.domain_name,
+            'Registrar': w.registrar,
+            'Creation Date': w.creation_date,
+            'Expiration Date': w.expiration_date,
+            'Last Updated': w.updated_date,
+            'Name Servers': w.name_servers,
+            'Status': w.status,
+            'Emails': w.emails,
+            'DNSSEC': w.dnssec,
+        }
+
+        results.append(whois_info)
+
+        # Return the WHOIS information
+        return w, results
+    except Exception as e:
+        # Print an error message if an exception occurs during the lookup
+        print(f"An error occurred during WHOIS lookup: {e}")
+
+        # Return None to indicate that the lookup was unsuccessful
+        return None
+         
+
