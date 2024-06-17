@@ -15,7 +15,7 @@ target = input("What webpage would you like to investigate?: \n"
                "> ")
 
 safe_filename = get_safe_filename(target)
-filename = f"{safe_filename}_Summary.pdf"
+filename = f"{safe_filename}_Summary.txt"
 with open(filename, 'w') as f: # write data to file
 
     
