@@ -59,15 +59,15 @@ with open(filename, 'w', encoding="utf-8") as f: # write data to file
         f.write(f"Error: {subdomain_scan_report['message']}\n")
 
 
-    # scan for vulnerbilities and store results
-    vuln_scan_report = perform_security_scan(target)
+    # # scan for vulnerbilities and store results
+    # vuln_scan_report = perform_security_scan(target)
 
-    if vuln_scan_report:  
-        f.write("\n\n------------- Potential Vulnerbilities -------------\n\n")
-        for vuln in vuln_scan_report:
-            f.write(f"{vuln}\n") # write results to report
-    else:
-        f.write("No vulnerbilities found\n")
+    # if vuln_scan_report:  
+    #     f.write("\n\n------------- Potential Vulnerbilities -------------\n\n")
+    #     for vuln in vuln_scan_report:
+    #         f.write(f"{vuln}\n") # write results to report
+    # else:
+    #     f.write("No vulnerbilities found\n")
 
 
     # scan for vulnerbilities and store results
