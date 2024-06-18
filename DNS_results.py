@@ -79,5 +79,4 @@ def whois_lookup(domain: str):
 
         # Return None to indicate that the lookup was unsuccessful
         return None
-         
-
+               
