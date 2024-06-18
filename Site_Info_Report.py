@@ -1,9 +1,9 @@
 from TechnicalInfo import get_tech_info
 from PortScan import port_scan
-from SubDomains import subdomain_scan_results
-from VulnerbilityCheck import perform_security_scan  
+from SubDomains import subdomain_scan_results 
 from DNS_results import DNSLookUp
 from whois import whois
+from fpdf import FPDF
 import re
 
 
@@ -19,7 +19,7 @@ target = get_safe_filename(input("What webpage would you like to investigate?: \
                                   "> "))
 
 safe_filename = get_safe_filename(target)
-filename = f"{safe_filename}_Summary.txt"
+filename = f"{safe_filename}_Summary.pdf"
 with open(filename, 'w', encoding="utf-8") as f:  # Write data to file
 
 
@@ -75,15 +75,4 @@ with open(filename, 'w', encoding="utf-8") as f:  # Write data to file
             f.write(f"{key}: {value}\n")
     else:
         f.write("WHOIS information not found.\n")
-
-
-#     # # scan for vulnerbilities and store results
-#     # vuln_scan_report = perform_security_scan(target)
-
-#     # if vuln_scan_report:  
-#     #     f.write("\n\n------------- Potential Vulnerbilities -------------\n\n")
-#     #     for vuln in vuln_scan_report:
-#     #         f.write(f"{vuln}\n") # write results to report
-#     # else:
-#     #     f.write("No vulnerbilities found\n")
 
