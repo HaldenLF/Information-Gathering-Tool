@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 import re
 
-def crawl(url, priority=1.0):
+def crawl_and_create_site_map(url, default_protocol="https", priority=1.0):
     visited_urls = set()
     root = ET.Element("urls")
 
@@ -49,6 +49,10 @@ def crawl(url, priority=1.0):
         except requests.exceptions.RequestException as e:
             print("Error:", str(e))
 
+        # Add protocol if not present
+    if not url.startswith("http"):
+        url = f"{default_protocol}://{url}"
+
     visit(url, priority)
 
     def get_safe_filename(url):
@@ -69,10 +73,5 @@ def crawl(url, priority=1.0):
     tree = ET.ElementTree(root)
     with open(filename, "wb") as f:
         tree.write(f, encoding='utf-8', xml_declaration=True)
-
-
-target = input("What site would you like to create a site map for?: \n"
-                "(Format https://www.example.com)\n"
-                 "> ")
-
-crawl(target)
+    
+    print(f"\nSite Map complete. Report saved to {filename}")

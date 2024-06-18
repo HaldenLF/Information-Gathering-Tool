@@ -184,8 +184,8 @@ def check_cookie_security(url):
 #         return f"Error checking CMS vulnerabilities: {e}"   # Return error message if request fails
 
 
-def main():
-    url = input("Enter the URL to scan: ")   # Prompt the user to enter a URL to scan
+def get_vulnerbility_Results(target):
+    url = target
     if not url.startswith('http'):   # Check if the URL does not start with 'http'
         url = 'http://' + url
 
@@ -222,7 +222,6 @@ def main():
     # all_results += "\nCMS Vulnerabilities:\n" + cms_vulnerabilities_result + "\n"   # Append results to all_results
 
 
-
     # Add each section with its title and body to the PDF report
     pdf.add_report_section("Security Headers", headers_result)
     pdf.add_report_section("Outdated Software Versions", software_result)
@@ -236,7 +235,3 @@ def main():
     # Generate the PDF report with all collected sections
     pdf.output(pdf_filename)   # Output the PDF report with the specified filename
     print(f"\nScan complete. Report saved to {pdf_filename}")  # Print confirmation message with the filename
-
-
-if __name__ == "__main__":
-    main()
