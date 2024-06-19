@@ -2,14 +2,19 @@
 
 ![image](https://github.com/HaldenLF/Information-Gathering-Tool/assets/165461117/64ef5afe-dc3b-4d91-a9cd-7e67a1a2260c)
 
-## Welcome to a Collection of Information Gathering programs
+## Welcome to a Collection of information-gathering programs
 This collection of information-gathering functions was created in order to gather as much information as possible from a website. Once all the files and modules are imported to your computer you should be able to grab information like the IP address, DNS, and WHOIS info, along with a vulnerability check. Just run the main function, enter the site name, sit back, wait a few minutes, and you will have all this information. <br />
 While not the most sophisticated collection of programs, this tool can save some time on information gathering.<br />
 
 ## Features
 * Gathers IP address
-* Gathers DNS information
-* 
+* DNS Scan
+* WHOIS scan
+* Port Scan
+* Subdomain Scan
+* Site Map Creation
+* Vulnerability scan _(not 100%)_
+* OWASP Top 10 scan _(not 100%)_
 
 
 ## Installation
@@ -22,6 +27,20 @@ While not the most sophisticated collection of programs, this tool can save some
  ```
  git clone https://github.com/HaldenLF/Information-Gathering-Tool.git
  ```
+```
+cd Information-Gathering-Tool
+```
+```
+pip install -r requirements.txt
+```
+```
+python (or python3) main.py
+```
+
+## Example Outputs
+![image](https://github.com/HaldenLF/Information-Gathering-Tool/assets/165461117/1acb0e9a-c770-49c7-bb3d-c0cacd1c815a)
+![image](https://github.com/HaldenLF/Information-Gathering-Tool/assets/165461117/aa8cbc55-e6fd-4815-9e1e-47762e599409)
+![image](https://github.com/HaldenLF/Information-Gathering-Tool/assets/165461117/884f0057-c09b-4fdd-8651-94f9cce60bfd)
 
 
 ## Collaborators
