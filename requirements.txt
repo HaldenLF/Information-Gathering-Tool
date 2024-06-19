@@ -1,0 +1,9 @@
+whois
+python-whois
+fpdf
+beautifulsoup4
+requests
+urllib
+ping3
+socket
+dns
