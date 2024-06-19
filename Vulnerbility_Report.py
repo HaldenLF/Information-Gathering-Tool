@@ -235,4 +235,4 @@ def get_vulnerbility_Results(target):
 
     # Generate the PDF report with all collected sections
     pdf.output(pdf_filename)   # Output the PDF report with the specified filename
-    print(f"\nVulnerbility scan complete. Report saved to {pdf_filename}")  # Print confirmation message with the filename
+    print(f"Vulnerbility scan complete. Report saved to {pdf_filename}\n")  # Print confirmation message with the filename

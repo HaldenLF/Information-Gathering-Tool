@@ -79,4 +79,4 @@ def get_site_info_report(target):
         pdf.cell(200, 10, txt="WHOIS information not found.\n", ln=1)
 
     pdf.output(filename + ".pdf")
-    print(f"\nSite information scan complete. Report saved to {filename}")
+    print(f"Site information scan complete. Report saved to {filename}\n")
