@@ -6,6 +6,8 @@ from datetime import datetime
 import re
 
 def crawl_and_create_site_map(url, default_protocol="https", priority=1.0):
+    print("Creating site map")
+
     visited_urls = set()
     root = ET.Element("urls")
 
@@ -74,4 +76,4 @@ def crawl_and_create_site_map(url, default_protocol="https", priority=1.0):
     with open(filename, "wb") as f:
         tree.write(f, encoding='utf-8', xml_declaration=True)
     
-    print(f"\nSite Map complete. Report saved to {filename}")
+    print(f"Site Map complete. Report saved to {filename}\n")

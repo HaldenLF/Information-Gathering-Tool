@@ -16,6 +16,7 @@ def get_safe_filename(url):
 
 
 def get_site_info_report(target):
+    print("Gathering site information")
 
     safe_filename = get_safe_filename(target)
     filename = f"{safe_filename}_Summary"

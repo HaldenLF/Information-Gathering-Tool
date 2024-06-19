@@ -185,6 +185,7 @@ def check_cookie_security(url):
 
 
 def get_vulnerbility_Results(target):
+    print("Scanning for vulnerbilities")
     url = target
     if not url.startswith('http'):   # Check if the URL does not start with 'http'
         url = 'http://' + url
@@ -234,4 +235,4 @@ def get_vulnerbility_Results(target):
 
     # Generate the PDF report with all collected sections
     pdf.output(pdf_filename)   # Output the PDF report with the specified filename
-    print(f"\nScan complete. Report saved to {pdf_filename}")  # Print confirmation message with the filename
+    print(f"\nVulnerbility scan complete. Report saved to {pdf_filename}")  # Print confirmation message with the filename
