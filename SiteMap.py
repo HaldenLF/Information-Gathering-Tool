@@ -51,7 +51,7 @@ def crawl_and_create_site_map(url, default_protocol="https", priority=1.0):
         except requests.exceptions.RequestException as e:
             print("Error:", str(e))
 
-        # Add protocol if not present
+    # Add protocol if not present
     if not url.startswith("http"):
         url = f"{default_protocol}://{url}"
 

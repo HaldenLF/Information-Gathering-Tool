@@ -192,7 +192,7 @@ def get_vulnerbility_Results(target):
 
     parsed_url = urlparse(url)   # Parse the URL to extract components like hostname
     hostname = parsed_url.hostname   # Get the hostname from the parsed URL
-    pdf_filename = f"{hostname}_vulnerability_scan_report.pdf"  # Construct PDF file name based on hostname
+    pdf_filename = f"{hostname}_Vulnerability_Scan_Report.pdf"  # Construct PDF file name based on hostname
 
     pdf = PDFReport()   # Create an instance of the PDFReport class for generating the report
     pdf.add_page()   # Add a new page to the PDF document

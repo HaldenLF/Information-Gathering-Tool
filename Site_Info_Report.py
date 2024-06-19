@@ -19,7 +19,7 @@ def get_site_info_report(target):
     print("Gathering site information")
 
     safe_filename = get_safe_filename(target)
-    filename = f"{safe_filename}_Summary"
+    filename = f"{safe_filename}_Site_Info.pdf"
 
         # Create a new PDF document
     pdf = fpdf.FPDF()
@@ -29,7 +29,7 @@ def get_site_info_report(target):
     # Technical information scan
     tech_scan_report = get_tech_info(target)
     if tech_scan_report:
-        pdf.cell(200, 10, txt="------------- Technical Information -------------", ln=1)
+        pdf.cell(200, 10, txt="------------- Site Information -------------", ln=1)
         for info in tech_scan_report:
             pdf.cell(200, 10, txt=info, ln=1)
     else:
