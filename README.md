@@ -1,8 +1,8 @@
-# Information Gathering Tool (work in progress)
+# Information Gathering Tool _(work in progress)_
 
 ![image](https://github.com/HaldenLF/Information-Gathering-Tool/assets/165461117/64ef5afe-dc3b-4d91-a9cd-7e67a1a2260c)
 
-## Welcome to a Collection of information-gathering programs
+## Welcome to a collection of information-gathering programs
 This collection of information-gathering functions was created in order to gather as much information as possible from a website. Once all the files and modules are imported to your computer you should be able to grab information like the IP address, DNS, and WHOIS info, along with a vulnerability check. Just run the main function, enter the site name, sit back, wait a few minutes, and you will have all this information. <br />
 While not the most sophisticated collection of programs, this tool can save some time on information gathering.<br />
 
