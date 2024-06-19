@@ -6,9 +6,9 @@ from whois import whois
 import fpdf
 import re
 
-
+# function that strips characters that are not allowed in filenames
 def get_safe_filename(url):
-    # Remove protocol and www (optional, adjust if needed)
+    # Remove protocol and www
     url = re.sub(r"^https?://(www\.)?", "", url)
     # Remove characters not allowed in filenames
     filename = re.sub(r"[^\w\-_. ]", "_", url)
@@ -18,10 +18,11 @@ def get_safe_filename(url):
 def get_site_info_report(target):
     print("Gathering site information")
 
+    # create file using the now safe filename
     safe_filename = get_safe_filename(target)
     filename = f"{safe_filename}_Site_Info.pdf"
 
-        # Create a new PDF document
+    # Create a new PDF document
     pdf = fpdf.FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=10)

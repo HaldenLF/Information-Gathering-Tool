@@ -1,3 +1,5 @@
+# Chris Sowmya
+
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
@@ -5,14 +7,16 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 import re
 
+# function that crawls all site specific urls and then creates an XML site map
 def crawl_and_create_site_map(url, default_protocol="https", priority=1.0):
     print("Creating site map")
 
+    #stores visited URLs
     visited_urls = set()
     root = ET.Element("urls")
 
+
     def visit(url, priority):
-        # print("Visiting:", url)
         visited_urls.add(url)
 
         url_element = ET.SubElement(root, "url")
@@ -57,16 +61,13 @@ def crawl_and_create_site_map(url, default_protocol="https", priority=1.0):
 
     visit(url, priority)
 
+    # function that strips characters that are not allowed in filenames
     def get_safe_filename(url):
-        
-        url = url.split("//", maxsplit=1)[1] # Remove protocol (https/http)
-        
-        url = url.replace("www.", "", 1) # Remove www subdomain (if present)
-        
-        hostname = url.split(".")[0] # Extract hostname and replace invalid characters
-        
-        safe_filename = hostname.replace("-", "_").replace(":", "_")
-        return safe_filename
+        # Remove protocol and www
+        url = re.sub(r"^https?://(www\.)?", "", url)
+        # Remove characters not allowed in filenames
+        filename = re.sub(r"[^\w\-_. ]", "_", url)
+        return filename.strip("_ ")  # Remove leading/trailing whitespace and underscores
 
     
     filename = f"{get_safe_filename(url)}_site_map.xml"

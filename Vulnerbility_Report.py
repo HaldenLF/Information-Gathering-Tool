@@ -1,8 +1,9 @@
-import requests    # Importing the requests library to make HTTP requests
-import re    # Importing the re library for regular expressions
-from urllib.parse import urlparse    # Importing urlparse from urllib.parse to parse URLs
-from fpdf import FPDF    # Importing FPDF for generating PDF reports
+# Ahmed
 
+import requests    
+import re    
+from urllib.parse import urlparse    
+from fpdf import FPDF 
 
 # Define a custom PDF report class inheriting from FPDF
 class PDFReport(FPDF):
@@ -184,7 +185,7 @@ def check_cookie_security(url):
 #         return f"Error checking CMS vulnerabilities: {e}"   # Return error message if request fails
 
 
-def get_vulnerbility_Results(target):
+def get_vulnerbility_report(target):
     print("Scanning for vulnerbilities")
     url = target
     if not url.startswith('http'):   # Check if the URL does not start with 'http'

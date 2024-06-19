@@ -6,7 +6,7 @@ import requests
 def scan_subdomains(domain_name, subdomain_list):
 
     valid_subdomains = []
-
+    # checks subdomains against predetermined list and adds them to list if they exist
     for subdomain in subdomain_list:
         url = f"https://{subdomain}.{domain_name}"
 

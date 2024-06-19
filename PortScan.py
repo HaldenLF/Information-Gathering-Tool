@@ -1,12 +1,11 @@
 # Code program for “Port Scanning, -- Ahmed, Suraesh, Reduan”
 
-# Wrote by Ahmed Salahudin:
+# Written by Ahmed Salahudin:
 
 import socket
 
-
+# function to check a defined list of ports to see if they are open
 def tcp_connect_scan(target, ports):
-    
 
     results = {}
 
@@ -31,6 +30,7 @@ def tcp_connect_scan(target, ports):
         3389: "Remote Desktop"
     }
 
+
     for port in ports:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(1)  # Set a timeout for the connection attempt
@@ -39,7 +39,6 @@ def tcp_connect_scan(target, ports):
             result = sock.connect_ex((target, port))
             if result == 0:
                 results[port] = service_map.get(port, "Unknown Service")
-                # print(f"Port {port} ({results[port]}) is open.")
         except Exception as e:
             print(f"Error scanning port {port}: {e}")
         finally:

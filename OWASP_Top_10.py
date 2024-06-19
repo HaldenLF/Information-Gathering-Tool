@@ -7,9 +7,6 @@ from urllib.parse import urlparse, urlunparse
 results =[]
 
 url = ""
-
-# login_url = f"{url}/login"
-# admin_url = f"{url}/admin"
 username = "admin"
 password = "admin"
 
@@ -71,7 +68,8 @@ def test_security_misconfiguration(url):
 
 # Test Vulnerable and Outdated Components (requires additional tools)
 def test_vulnerable_and_outdated_components():
-    results.append("Manual check required for Vulnerable and Outdated Components. Consider using tools like Retire.js or OWASP Dependency-Check.")
+    results.append("Manual check required for Vulnerable and Outdated Components.\n" 
+                   "Consider using tools like Retire.js or OWASP Dependency-Check.")
 
 
 # Test Identification and Authentication Failures
@@ -97,7 +95,8 @@ def test_software_data_integrity_failures(url):
 
 # Test Security Logging and Monitoring Failures (requires log access)
 def test_security_logging_monitoring_failures():
-    results.append("Manual check required for Security Logging and Monitoring Failures. Ensure that appropriate logging and monitoring are in place.")
+    results.append("Manual check required for Security Logging and Monitoring Failures.\n" 
+                   "Ensure that appropriate logging and monitoring are in place.")
 
 
 # Test Server-Side Request Forgery (SSRF)
@@ -109,19 +108,19 @@ def test_ssrf(url):
     else:
         results.append("No Server-Side Request Forgery (SSRF) vulnerability found.")
 
-
+# get a filename from the url and removes all characters not allowed in filenames
 def get_safe_filename(url):
-    # Remove protocol and www (optional, adjust if needed)
+    # Remove protocol and www
     url = re.sub(r"^https?://(www\.)?", "", url)
     # Remove characters not allowed in filenames
     filename = re.sub(r"[^\w\-_. ]", "_", url)
     return filename.strip("_ ")  # Remove leading/trailing whitespace and underscores
 
 # Run tests
-def OWASP_Top_10_tests(target):
+def OWASP_Top_10_report(target):
     
     global url
-    if not target:
+    if not target: # check if url is empty
         print("Error: Target URL is empty")
         return
     
@@ -136,6 +135,7 @@ def OWASP_Top_10_tests(target):
 
     print(f"Testing OWASP Top 10 on: {target}")
 
+    # calling functions
     test_broken_access_control(target)
     test_cryptographic_failures(target)
     test_sql_injection(login_url)
@@ -147,13 +147,16 @@ def OWASP_Top_10_tests(target):
     test_security_logging_monitoring_failures()
     test_ssrf(target)
 
+    #creating filename and file
     safe_filename = get_safe_filename(target)
     filename = f"{safe_filename}_OWASP_Test.pdf"
 
+    #create PDF and set font/size
     pdf = fpdf.FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size = 10)
 
+    # header for the tests
     if results:
         pdf.cell(200, 10, txt="------------- OWASP Test Results -------------", ln=1)
         for result in results:
@@ -161,8 +164,7 @@ def OWASP_Top_10_tests(target):
     else:
         pdf.cell(200, 10, txt="No results found", ln=1)
 
+    # add to pdf
     pdf.output(filename)
     print(f"OWASP Top 10 Test Complete. Report saved to {filename}\n")
-
-
 
