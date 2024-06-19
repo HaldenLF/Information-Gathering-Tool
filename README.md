@@ -53,4 +53,4 @@ If you're interested in contributing to the project, please do! We are constantl
 * Report bugs or request new features by creating an issue on our GitHub repository.🐛
 * Help us improve the documentation by submitting updates or corrections.📚
 * Contribute code by submitting pull requests with bug fixes or new features.💻
-Any help is greatly appreciated
+* Any help is greatly appreciated
