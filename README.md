@@ -3,9 +3,9 @@
 ![image](https://github.com/HaldenLF/Information-Gathering-Tool/assets/165461117/64ef5afe-dc3b-4d91-a9cd-7e67a1a2260c)
 
 ## Versions
-There are two versions of this project.
-Version 1 is a group project from an internship, as a group we each took individual sections which were then combined together to produce the end output.
-Version 2 is a self project that continues on from the group project but implements some changes to improve efficency and functionality. 
+There are two versions of this project.<br />
+Version 1 is a group project from an internship, as a group we each took individual sections which were then combined together to produce the end output.<br />
+Version 2 is a self project that continues on from the group project but implements some changes to improve efficency and functionality. <br />
 
 ## Installation
 > Note: python3 and pip must be installed _ignore this if installed_
