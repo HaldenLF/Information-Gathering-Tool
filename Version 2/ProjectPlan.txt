@@ -1,0 +1,61 @@
+Goal:
+    To create a tool that will be able to return informtation that is important to a penetration test.
+    This tool can use other existing tools to accomplish this goal and will combine the results into a report.
+
+What do I need to retrieve from a site?:
+        Target Name & location
+        IP address
+        Domain name
+        DNS records
+        Open ports
+        subdomains
+        directories
+        what software is running
+        programming languages
+        CMS
+        frameworks    
+        Versions of the above and possible vulns
+
+    - MAYBES
+        Gather information from social media platforms 
+        (e.g., LinkedIn, Twitter) 
+        to identify employees, their roles, and potential vulnerabilities.
+
+
+Tools available:
+
+    Domain and Subdomain Enumeration:
+        sublist3r: identify subdomains of a target domain.
+        assetfinder: subdomain enumeration.
+        Amass: subdomain enumeration  to discover hidden subdomains.
+
+    Port Scanning:
+        nmap: for identifying open ports, services running on those ports, and their versions.
+        masscan: port scanner known for its speed and ability to scan large networks quickly.
+
+    Web Technology Identification:
+    WhatWeb: identifies web server software, programming languages, frameworks, and CMS used on a website.
+    Wappalyzer: for identifying web technologies similar to WhatWeb.
+
+    Vulnerability Scanning:
+        OpenVAS: vulnerability scanner.
+        Nessus: vulnerability scanner.
+
+    Directory and File Enumeration:
+        Dirbuster: brute-forcing tool for identifying directories and files on a web server.
+        Gobuster: directory and file enumeration tool.
+
+    Additional Information Gathering Tools:
+        WHOIS: Provides information about a domain name registrant, including contact details and registration date.
+        Netcraft: information about web server technology, hosting providers, and website history.
+        VirusTotal: Scans files and URLs for malware and malicious content.
+        Wayback Machine: Allows access to archived versions of websites, potentially revealing historical configurations or vulnerabilities.
+        Hunter.io: Tool for finding email addresses associated with a domain.
+        MX Toolbox: Provides information about a domain's email server configuration.
+        DNSChecker: Tool for checking DNS records (MX, A, CNAME, etc.).
+        Shodan.io: for discovering internet-connected devices, potentially revealing vulnerable systems.
+        Ping: checks connectivity to a host by sending and receiving data packets.
+        TheHarvester: tool that gathers information (emails, subdomains, employees) from various open-source data sources.
+        Recon-ng: penetration testing framework for information gathering, scanning, and exploitation.
+        RED-HAWK: vulnerability scanner with a focus on finding SQL injection and XSS vulnerabilities.
+
