@@ -59,3 +59,12 @@ Tools available:
         Recon-ng: penetration testing framework for information gathering, scanning, and exploitation.
         RED-HAWK: vulnerability scanner with a focus on finding SQL injection and XSS vulnerabilities.
 
+Todo:
+    look at which tools will used, 
+        can any be combined to give a clearer insight
+
+    What order will they appear on the document
+
+    Research GUI
+
+    
