@@ -1,6 +1,6 @@
 Goal:
     To create a tool that will be able to return informtation that is important to a penetration test.
-    This tool can use other existing tools to accomplish this goal and will combine the results into a report.
+    This tool may use other existing tools to accomplish this goal and will combine the results into a report.
 
 What do I need to retrieve from a site?:
         Target Name & location
