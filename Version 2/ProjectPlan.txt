@@ -63,6 +63,17 @@ Todo:
     look at which tools will used, 
         can any be combined to give a clearer insight
 
+    CPM
+    Context Diagram
+    DFD level 1 & 2 
+
+    (MAYBE
+    Class Anaylysis Diagram
+    State transition diagram
+    )
+
+
+
     What order will they appear on the document
 
     Research GUI
