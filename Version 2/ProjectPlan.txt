@@ -59,4 +59,15 @@ Tools available:
         RED-HAWK: vulnerability scanner with a focus on finding SQL injection and XSS vulnerabilities.
 
 
-    
+Diagrams to Visualize system:
+
+    CPM
+
+    Context Diagram
+
+    DFD level 1 & 2 
+
+    Class Anaylysis Diagram
+
+    State transition diagram
+
