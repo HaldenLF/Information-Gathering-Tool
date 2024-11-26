@@ -19,7 +19,6 @@ What do I need to retrieve from a site?:
     - MAYBES
         Gather information from social media platforms 
         (e.g., LinkedIn, Twitter) 
-        to identify employees, their roles, and potential vulnerabilities.
 
 
 Tools available:
@@ -59,23 +58,5 @@ Tools available:
         Recon-ng: penetration testing framework for information gathering, scanning, and exploitation.
         RED-HAWK: vulnerability scanner with a focus on finding SQL injection and XSS vulnerabilities.
 
-Todo:
-    look at which tools will used, 
-        can any be combined to give a clearer insight
-
-    CPM
-    Context Diagram
-    DFD level 1 & 2 
-
-    (MAYBE
-    Class Anaylysis Diagram
-    State transition diagram
-    )
-
-
-
-    What order will they appear on the document
-
-    Research GUI
 
     
