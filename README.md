@@ -10,7 +10,7 @@ There are two versions of this project.<br />
 ## Installation
 > Note: python3 and pip must be installed _ignore this if installed_
 > ```
-> sudo apt update
+> sudo apt updategit
 > sudo apt install python3
 > sudo apt install python3-pip
 > ```
