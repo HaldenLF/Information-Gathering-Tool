@@ -1,0 +1,14 @@
+/////////////////Mark as done when completed///////////////
+
+Step 1: Planning and Requirement Anaylysis ***[DONE]***
+
+Step 2: Requirement Specifaction ***[DONE]***
+
+Step 3: Architecture Design ***[]***
+
+Step 4: Development Stage ***[]***
+
+Step 5: Testing ***[]***
+
+Step 6: Upgrades and Improvements ***[]***
+

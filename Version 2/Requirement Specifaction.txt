@@ -1,0 +1,24 @@
+What do I need to retrieve from a site?:
+        Target Name & location
+        IP address
+        Domain name
+        DNS records
+        Open ports
+        Subdomains
+        Directories
+        What software is running
+        Programming languages
+        CMS
+        Frameworks    
+        Versions of the above and possible vulns
+        
+        Gather information from social media platforms 
+        (e.g., LinkedIn, Twitter) 
+
+How should it be presented?
+        The program should pull all the information from the desired tools and format
+        it into a neat and organized table or report. 
+        The report should include a clear section for each of the above goals.
+
+    The report should be easy to read and understand, with clear headings and
+    subheadings. The report should also include any relevant images or screenshots.

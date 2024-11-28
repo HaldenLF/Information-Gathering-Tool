@@ -1,0 +1,13 @@
+Diagrams to Visualize system:
+
+        //What order will information appear on the document?//
+
+    CPM
+
+    Context Diagram
+
+    DFD level 1 & 2 
+
+    Class Anaylysis Diagram
+
+    State transition diagram
