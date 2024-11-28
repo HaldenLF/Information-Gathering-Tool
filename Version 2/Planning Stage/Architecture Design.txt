@@ -1,12 +1,31 @@
 Diagrams to Visualize system:
 
         //What order will information appear on the document?//
+            Basic overview info -
+                Site name
+                Domain name
+                IP address
+                Cloud server host name (if any)
+                location
 
-    CPM
+            More indepth info - 
+                DNS records
+                Subdomains
+                Directories
+                Open ports
+                Software & Versions
+                    (can we list known vulns with each version)
+                Programming languages
+                CMS
+                Frameworks
+                Social Media Information
+        ---------------------------------------------------------
 
     Context Diagram
-
+    
     DFD level 1 & 2 
+
+    Critical Path Method (CPM)
 
     Class Anaylysis Diagram
 
