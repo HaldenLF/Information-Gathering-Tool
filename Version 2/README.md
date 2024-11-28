@@ -2,7 +2,7 @@
 
 ![image](https://github.com/HaldenLF/Information-Gathering-Tool/assets/165461117/64ef5afe-dc3b-4d91-a9cd-7e67a1a2260c)
 
-## Welcome to my information gathering tool
+## Welcome to my Information Gathering Tool
 This comprehensive information-gathering tool is designed to efficiently extract extensive details from a website. This will include information such as IP address, DNS, WHOIS details, along with other information like software that is being run and its version. Simply execute the program, input the site name, and the tool will compile all the relevant data.<br />
 This tool significantly streamlines the process of information gathering, saving you valuable time. <br />
 
