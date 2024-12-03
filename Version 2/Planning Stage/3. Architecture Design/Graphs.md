@@ -1,14 +1,14 @@
 Context Diagram
-![alt text](ContextDiagram.PNG)
+![Context Diagram](ContextDiagram.PNG)
     
 DFD level 1
-![alt text](DFDlvl1.PNG) 
+![DFD level 1](DFDlvl1.PNG) 
 
 DFD level 2
-![alt text](DFDlvl2.PNG)
+![DFD level 2](DFDlvl2.PNG)
 
 Critical Path Method (CPM) 
-![alt text](CriticalPathMethod.PNG)
+![CPM](CriticalPathMethod.PNG)
 
 Class Anaylysis Diagram 
 
