@@ -28,5 +28,3 @@ Diagrams to Visualize system:
     Critical Path Method (CPM)
 
     Class Anaylysis Diagram
-
-    State transition diagram
