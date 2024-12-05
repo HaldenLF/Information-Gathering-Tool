@@ -44,16 +44,26 @@ def create_pdf(site_name, info_dict, output_filename):
 
     c.save()
 
+def basic_info(userTarget, shodan_API_key):
+    try:
+        page_response = requests.get(userTarget)
+        if page_response.status_code == 200:
+            soup = BeautifulSoup(page_response.content, 'html.parseer')
+            site_name = soup.title.string if soup.title else 'N/A'
+        else:
+            site_name = 'N/A'
+    except Exception as e:
+        site_name = 'N/A'    
 
 
 
 
 def main():
     print('What type information would you like to gather?\n'
-          '\n'
-          '1. Basic information\n'
-          '2. Detailed information\n'
-          '3. A Site Map')
+            '\n'
+            '1. Basic information\n'
+            '2. Detailed information\n'
+            '3. A Site Map')
 
     userInput = input()
 
@@ -69,8 +79,8 @@ def main():
 
     info_dict = {}
     userTarget = input('Enter target URL\n'
-                       '> ')
-    
+                        '> ')
+
     target_folder = userTarget
     if not os.path.exists(target_folder):
         os.makedirs(target_folder)
