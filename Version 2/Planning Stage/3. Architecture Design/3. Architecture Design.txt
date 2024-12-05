@@ -2,11 +2,11 @@ Diagrams to Visualize system:
 
         //What order will information appear on the document?//
             Basic overview info -
-                Site name
-                Domain name
-                IP address
-                Cloud server host name (if any)
-                location
+                Site name                           - shodan
+                Domain name                         - shodan
+                IP address                          - shodan
+                Cloud server host name (if any)     - shodan
+                location                            - shodan
 
             More indepth info - 
                 DNS records
