@@ -21,7 +21,6 @@ def get_site_info(domain):
 
     # Get location
     try:
-        # Download the GeoLite2 City database from MaxMind
         reader = geoip2.database.Reader('GeoLite2-City.mmdb')
         response = reader.city(ip_address)
         location = f"{response.city.name}, {response.subdivisions.most_specific.name}, {response.country.name}"
