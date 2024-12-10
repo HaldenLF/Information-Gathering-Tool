@@ -1,15 +1,12 @@
 # External imports
 import os
-import socket
-import requests
-from bs4 import BeautifulSoup
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 
 # Internal imports
 
 
-shodan_API_key = os.getenv('SHODAN_API_KEY')
+# shodan_API_key = os.getenv('SHODAN_API_KEY')
 
 def create_pdf(site_name, info_dict, output_filename):
     # Create PDF 
@@ -44,19 +41,6 @@ def create_pdf(site_name, info_dict, output_filename):
 
     c.save()
 
-def basic_info(userTarget, shodan_API_key):
-    try:
-        page_response = requests.get(userTarget)
-        if page_response.status_code == 200:
-            soup = BeautifulSoup(page_response.content, 'html.parseer')
-            site_name = soup.title.string if soup.title else 'N/A'
-        else:
-            site_name = 'N/A'
-    except Exception as e:
-        site_name = 'N/A'    
-
-
-
 
 def main():
     print('What type information would you like to gather?\n'
@@ -68,7 +52,6 @@ def main():
     userInput = input()
 
     if userInput.lower() == '1' or 'basic' or 'basic info' or 'basic information':
-        # call function for
         pass
     elif userInput.lower() == '2' or 'detailed' or 'detailed info' or 'detailed information':
         pass

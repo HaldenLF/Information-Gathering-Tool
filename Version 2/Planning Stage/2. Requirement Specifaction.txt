@@ -22,3 +22,85 @@ How should it be presented?
 
     The report should be easy to read and understand, with clear headings and
     subheadings. The report should also include any relevant images or screenshots.
+
+------------------------------------------------------------------------------------------------------------------------
+What tools can retrieve what from each requirement
+
+        Target Name & Location
+            WHOIS: Provides information about a domain name registrant, including contact details and registration date.
+
+            Netcraft: Information about web server technology, hosting providers, and website history.
+
+        IP Address
+            Ping: Checks connectivity to a host by sending and receiving data packets.
+
+        Domain Name
+            WHOIS: Provides information about a domain name registrant, including contact details and registration date.
+
+            Recon-ng: Penetration testing framework for information gathering, scanning, and exploitation.
+
+        DNS Records
+            DNSChecker: Tool for checking DNS records (MX, A, CNAME, etc.).
+
+        Open Ports
+            nmap: For identifying open ports, services running on those ports, and their versions.
+
+            masscan: Port scanner known for its speed and ability to scan large networks quickly.
+
+        Subdomains
+            sublist3r: Identifies subdomains of a target domain.
+
+        assetfinder: Subdomain enumeration.
+
+            Amass: Subdomain enumeration to discover hidden subdomains.
+
+            TheHarvester: Tool that gathers information (emails, subdomains, employees) from various open-source data sources.
+
+        Directories
+            Dirbuster: Brute-forcing tool for identifying directories and files on a web server.
+
+            Gobuster: Directory and file enumeration tool.
+
+        What Software Is Running
+            WhatWeb: Identifies web server software, programming languages, frameworks, and CMS used on a website.
+
+            Wappalyzer: For identifying web technologies similar to WhatWeb.
+
+        Programming Languages
+            WhatWeb: Identifies web server software, programming languages, frameworks, and CMS used on a website.
+
+            Wappalyzer: For identifying web technologies similar to WhatWeb.
+
+        CMS
+            WhatWeb: Identifies web server software, programming languages, frameworks, and CMS used on a website.
+
+            Wappalyzer: For identifying web technologies similar to WhatWeb.
+
+        Frameworks
+            WhatWeb: Identifies web server software, programming languages, frameworks, and CMS used on a website.
+
+            Wappalyzer: For identifying web technologies similar to WhatWeb.
+
+        Versions of the Above and Possible Vulnerabilities
+            nmap: For identifying open ports, services running on those ports, and their versions.
+
+            OpenVAS: Vulnerability scanner.
+
+            Nessus: Vulnerability scanner.
+
+            RED-HAWK: Vulnerability scanner with a focus on finding SQL injection and XSS vulnerabilities.
+
+        Gather Information from Social Media Platform
+            Recon-ng: Penetration testing framework for information gathering, scanning, and exploitation.
+
+        Additional Information Gathering Tools
+            VirusTotal: Scans files and URLs for malware and malicious content.
+
+            Wayback Machine: Allows access to archived versions of websites, potentially revealing historical configurations or vulnerabilities.
+
+            Hunter.io: Tool for finding email addresses associated with a domain.
+
+            MX Toolbox: Provides information about a domain's email server configuration.
+
+            Shodan.io: For discovering internet-connected devices, potentially revealing vulnerable systems.
+
