@@ -1,5 +1,5 @@
 # Requires user to set up API key
-# Not currently worth the extra steps to set it up
+# Free API has limitations on amount of queries in a short space of time
 
 import shodan
 import os
