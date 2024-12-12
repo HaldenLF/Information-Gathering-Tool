@@ -12,6 +12,8 @@ def get_site_info(domain):
         w = whois.whois(domain)
         site_info["Site Name"] = w.name or w.domain_name
         site_info["Domain Name"] = w.domain_name
+        site_info["DNSSEC"] = w.dnssec
+        site_info['Emails'] = w.emails
     except Exception as e:
         print(f"WHOIS lookup failed: {e}")
 
@@ -31,9 +33,9 @@ def get_site_info(domain):
     try:
         response = ping(ip_address)
         if response is not None:
-            site_info["Ping"] = f"Server is reachable, round trip time: {response * 1000:.2f} ms"
+            site_info["Status"] = f"Server is reachable, round trip time: {response * 1000:.2f} ms"
         else:
-            site_info["Ping"] = "Server is not reachable"
+            site_info["Status"] = "Server is not reachable"
     except Exception as e:
         print(f"Ping failed: {e}")
 
@@ -47,8 +49,8 @@ def get_site_info(domain):
                 "City": ipinfo_data.get("city"),
                 "Region": ipinfo_data.get("region"),
                 "Country": ipinfo_data.get("country"),
-                "Latitude": ipinfo_data.get("loc").split(",")[0] if ipinfo_data.get("loc") else None,
-                "Longitude": ipinfo_data.get("loc").split(",")[1] if ipinfo_data.get("loc") else None,
+                # "Latitude": ipinfo_data.get("loc").split(",")[0] if ipinfo_data.get("loc") else None,
+                # "Longitude": ipinfo_data.get("loc").split(",")[1] if ipinfo_data.get("loc") else None,
             }
         else:
             site_info["Location"] = "Location lookup failed"
