@@ -1,3 +1,4 @@
+# Not going to be used
 import socket
 import requests
 import whois
