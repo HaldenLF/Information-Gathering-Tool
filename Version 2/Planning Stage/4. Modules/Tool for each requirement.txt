@@ -7,10 +7,16 @@
         Location                            - Shodan, WHOIS, Netcraft
 
     More indepth info - 
-        DNS records                         - DNSChecker, Recon-ng, MX Toolbox [did not retreive]
+        DNS records                         - DNSChecker, Recon-ng, MX Toolbox [combined with above]
         Subdomains                          - sublist3r, assetfinder, Amass, TheHarvester [used sublister]
-        Directories                         - Dirbuster, Gobuster
+        Directories                         - Dirbuster, Gobuster [used bs4]
         Open ports                          - nmap, masscan
+            {
+                https://www.youtube.com/watch?v=zsG68FLm3Xs&t=5s&ab_channel=stuffy24
+                https://www.youtube.com/watch?v=pHnal6ae6Ig&t=1s&ab_channel=stuffy24
+                https://medium.com/@wizD/a-simple-port-scanner-using-python-e541454ea570
+            }
+
         Software & Versions                 - WhatWeb, Wappalyzer, nmap
             (can we list known vulns with each version)
                                             - OpenVAS, Nessus, RED-HAWK
